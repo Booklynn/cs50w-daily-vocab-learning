@@ -17,13 +17,6 @@
                 <p class="text-gray-600"><strong>Example:</strong> {{ word.example_sentence }}</p>
                 
                 <div class="mt-4 flex space-x-4">
-                    <form method="post" action="{% url 'vocab_app:mark_learned' word.id %}">
-                        {% csrf_token %}
-                        <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-                            Mark as Learned
-                        </button>
-                    </form>
-                    
                     <a href="{% url 'vocab_app:word_detail' word.id %}" 
                        class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
                         View Details
