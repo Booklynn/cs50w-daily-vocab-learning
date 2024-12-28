@@ -1,0 +1,43 @@
+{% extends 'vocab_app/layout.html' %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto">
+    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+        <h1 class="text-3xl font-bold mb-2">Practice Words</h1>
+        <p class="text-gray-600 mb-6">Mark words as learned to track your progress and focus on new words next time.</p>
+    </div>
+    
+    <div class="space-y-6">
+        {% for word in words %}
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl text-blue-600 mb-2">
+                    <a href="{% url 'vocab_app:word_detail' word.id %}" class="hover:underline">{{ word.word }}</a>
+                </h2>
+                <p class="text-gray-700"><strong>Definition:</strong> {{ word.definition }}</p>
+                <p class="text-gray-600"><strong>Example:</strong> {{ word.example_sentence }}</p>
+                
+                <div class="mt-4 flex space-x-4">
+                    <form method="post" action="{% url 'vocab_app:mark_learned' word.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                            Mark as Learned
+                        </button>
+                    </form>
+                    
+                    <a href="{% url 'vocab_app:word_detail' word.id %}" 
+                       class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+                        View Details
+                    </a>
+                </div>
+            </div>
+        {% empty %}
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <p class="text-gray-600">No more words to practice! You've learned them all!</p>
+                <a href="{% url 'vocab_app:home' %}" class="inline-block mt-4 text-blue-600 hover:underline">
+                    Check today's new word
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
