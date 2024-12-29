@@ -12,6 +12,7 @@
     <div class="space-y-4">
         <h2 class="text-2xl text-blue-600">
             <a href="{% url 'vocab_app:word_detail' word.id %}" class="hover:underline">{{ word.word }}</a>
+            <button class="text-sm text-gray-600 mt-2" onclick="speakWord('{{ word.word }}')">🔊 Speak</button>
         </h2>
         <p class="text-gray-700"><strong>Definition:</strong> {{ word.definition }}</p>
         <p class="text-gray-600"><strong>Example:</strong> {{ word.example_sentence }}</p>

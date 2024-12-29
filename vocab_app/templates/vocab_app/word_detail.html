@@ -4,7 +4,9 @@
 <div class="max-w-2xl mx-auto">
     <div class="bg-white rounded-lg shadow-md p-6 mb-6">
         <div class="flex justify-between items-start mb-4">
-            <h1 class="text-3xl font-bold">{{ word.word }}</h1>
+            <h1 class="text-3xl font-bold">
+                {{ word.word }} 
+                <button class="text-sm text-gray-600 mt-2" onclick="speakWord('{{ word.word }}')">🔊 Speak</button></h1>
             {% if word.ai_generated %}
                 <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">AI Generated</span>
             {% endif %}
