@@ -14,12 +14,6 @@ class Command(BaseCommand):
                 'difficulty_level': 'ADVANCED'
             },
             {
-                'word': 'ubiquitous',
-                'definition': 'Present, appearing, or found everywhere',
-                'example_sentence': 'Mobile phones have become ubiquitous in modern society.',
-                'difficulty_level': 'ADVANCED'
-            },
-            {
                 'word': 'serendipity',
                 'definition': 'The occurrence and development of events by chance in a happy or beneficial way',
                 'example_sentence': 'Finding his dream job while on vacation was pure serendipity.',

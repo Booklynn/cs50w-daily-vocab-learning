@@ -1,8 +1,8 @@
-from openai import OpenAI
 from django.conf import settings
 import json
+import google.generativeai as genai
 
-openai_api_key = settings.OPENAI_API_KEY
+genai.configure(api_key=settings.GEMINI_API_KEY)
 
 def generate_word_of_the_day():
     prompt = """Generate a vocabulary word with its definition and an example sentence. 
@@ -17,20 +17,9 @@ def generate_word_of_the_day():
     Make sure the word is educational and appropriate for learning."""
 
     try:
-        client = OpenAI(
-            api_key = openai_api_key
-        )
-
-        response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system", "content": "You are a helpful language learning assistant that generates vocabulary words."},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=0.7,
-        )
-        
-        content = response.choices[0].message.content
+        model = genai.GenerativeModel(model_name="gemini-1.5-flash", generation_config={"response_mime_type": "application/json"}, )
+        response = model.generate_content(prompt)
+        content = response.text
         word_data = json.loads(content)
         
         return word_data
