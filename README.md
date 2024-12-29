@@ -46,10 +46,10 @@ Contains related URLs associated with the views file.
 
 ### Setup
 1. Set up a virtual environment `python -m venv venv`
-2. Install dependencies  `pip install -r requirements.txt`
-3. Activate virtual environment
+2. Activate virtual environment
     - On macOS/Linux: source venv/bin/activate
     - On Windows: venv\Scripts\activate
+3. Install dependencies  `pip install -r requirements.txt`
 4. Apply migrations `python manage.py migrate`
 5. Create .env file
     - Add GEMINI_API_KEY=your_gemini_key_here to the file.
