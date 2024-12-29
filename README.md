@@ -50,12 +50,11 @@ Contains related URLs associated with the views file.
 3. Activate virtual environment
     - On macOS/Linux: source venv/bin/activate
     - On Windows: venv\Scripts\activate
-3. Apply migrations `python manage.py migrate`
-4. Create .env file
+4. Apply migrations `python manage.py migrate`
+5. Create .env file
     - Add GEMINI_API_KEY=your_gemini_key_here to the file.
-6. Generate a daily vocabulary (Optinal) `python manage.py generate_daily_word`
-7. Populate pre-set vocabulary data `python manage.py populate_words`
-8. Run the application  `python manage.py runserver`
+6. Populate pre-set vocabulary data `python manage.py populate_words`
+7. Run the application  `python manage.py runserver`
 
 ## Note
 You can create an Gemini API key by visiting https://aistudio.google.com/app/apikey
